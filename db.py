@@ -2,7 +2,9 @@ from sqlalchemy import create_engine, ForeignKey
 from sqlalchemy import Column, Date, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
-engine = create_engine('sqlite:///C:\\projects\\python\\expert_system\\school.db')
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+engine = create_engine('sqlite://'+os.path.abspath(os.path.dirname(__file__))+'school.db')
 Base = declarative_base()
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
